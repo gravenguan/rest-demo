@@ -1,0 +1,55 @@
+#%RAML 1.0
+version: v1
+title: rest-demo
+
+/inspection:
+  get:
+    description: Retrive a specific inspection
+    queryParameters:
+      vin:
+        displayName: Vin Number
+        type: string
+        example: "ABCDEFG1234567890"
+        required: false
+      licensePlateNumber:
+        displayName: License Plate Name
+        type: string
+        example: "ABC123"
+        required: false
+      licensePlateState:
+        displayName: License Plate State
+        type: string
+        example: "Texas"
+        required: false
+      inspectorId:
+        displayName: Inspector ID
+        type: number
+        example: 111
+        required: false
+        
+    responses:
+      200:
+        description: Ok
+        body:
+          application/json:
+     
+  post:
+    description: This is Inspection POST Services
+    body:
+      application/json:
+        type: object
+    responses:
+      201:
+        description: Sucess
+        body:
+          application/json:
+            example:
+             {"message": "Inspection Created!"}
+ 
+/vehicle:
+  get:
+   description: Retrieve a specific Vehicle
+   responses:
+     200:
+       body:
+        application/json:
